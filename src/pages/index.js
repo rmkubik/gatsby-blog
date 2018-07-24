@@ -1,23 +1,38 @@
 import React from 'react'
 
+import PostListing from '../components/postListing'
+
 const IndexPage = ({ data }) => (
   <div>
-    <h1>Hello World</h1>
-    <p>{data.site.siteMetadata.title}</p>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <h2>Posts</h2>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <PostListing post={node} key={node.id} />
+    ))}
   </div>
 )
 
 export default IndexPage
 
 export const query = graphql`
-query SiteMeta {
+  query SiteMeta {
     site {
-        siteMetadata {
-          title
-          desc
-        }
+      siteMetadata {
+        title
+        desc
+      }
     }
-}
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          excerpt
+          html
+          frontmatter {
+            title
+            date(formatString: "d/M/YY")
+          }
+        }
+      }
+    }
+  }
 `
