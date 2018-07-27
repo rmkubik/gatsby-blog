@@ -31,6 +31,9 @@ export const query = graphql`
             title
             date(formatString: "d/M/YY")
           }
+          fields {
+            slug
+          }
         }
       }
     }
