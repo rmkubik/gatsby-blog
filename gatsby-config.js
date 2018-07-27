@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        excerpt_separator: `<-- end -->`,
+        excerpt_separator: `<!-- end -->`,
         path: `${__dirname}/src/posts/`,
       },
     },
