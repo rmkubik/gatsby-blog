@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import './index.css'
 
-const Layout = ({ children, data }) => (
+const Layout = ({ children, data, location }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
@@ -17,6 +17,7 @@ const Layout = ({ children, data }) => (
     <Header
       siteTitle={data.site.siteMetadata.title}
       background={data.background}
+      location={location}
     />
     <div
       style={{
@@ -44,10 +45,10 @@ export const query = graphql`
         title
       }
     }
-    background: imageSharp(id :{regex:"/bg.jpeg/"}) {
-        sizes(maxWidth: 1240) {
-            ...GatsbyImageSharpSizes
-        }
+    background: imageSharp(id: { regex: "/bg.jpeg/" }) {
+      sizes(maxWidth: 1240) {
+        ...GatsbyImageSharpSizes
+      }
     }
   }
 `
