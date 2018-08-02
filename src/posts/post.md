@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the New Blog"
+title: "New title name"
 date: "2018-07-23"
 ---
 
