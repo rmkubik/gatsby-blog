@@ -21,7 +21,7 @@ export const query = graphql`
         desc
       }
     }
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -29,7 +29,7 @@ export const query = graphql`
           html
           frontmatter {
             title
-            date(formatString: "d/M/YY")
+            date(formatString: "M/D/YY")
           }
           fields {
             slug
