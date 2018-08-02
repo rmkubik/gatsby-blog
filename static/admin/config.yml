@@ -1,5 +1,6 @@
 backend:
-    name: test-repo
+    name: github
+    repo: rmkubik/gatsby-blog
 
 media_folder: static/assets
 
